@@ -1,0 +1,62 @@
+
+class endereco:
+    def __init__(self):
+        self.rua = "",
+        self.numero = 0,
+        self.bairro = "",
+        self.ceep = 0,
+        self.cidade = "",
+        self.estado ="",
+        self.pais = ""
+class data:
+    def __init__(self):
+        self.dia = 0
+        self.mes = 0 
+        self.ano = 0
+
+class telefone:
+    def __init__(self):
+        self.ddd = 0
+        self.numero = 0        
+
+class pessoa:
+    def __init__(self):
+        self.nome = "",
+        self.sobrenome = "",
+        self.cpf = 0,
+        self.endereco = endereco
+        self.nascimento = data
+        self.contato = telefone 
+        self.contato2 = telefone
+
+
+class funcionario:
+    def __init__(self):
+        self.dados = pessoa
+        self.cargo = ""
+        self.setor = ""
+        self.data_efetivo = data
+
+
+class cliente:
+    def init__(self):
+        self.dados = pessoa
+        self.ativo = ""
+
+
+class produto:
+    def __init__(self):
+        self.descricao = ""
+        self.marca = ""
+        self.fornecedor = ""
+        self.valorcompra = 0 
+        self.valorVenda = 0
+
+class venda:
+    def __init__(self):
+        self.cliente = cliente
+        self.produto = produto
+        self.vendedor = ""
+
+
+
