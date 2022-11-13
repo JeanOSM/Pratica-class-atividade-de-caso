@@ -1,62 +1,107 @@
 
-class endereco:
+class Endereco: #Address
     def __init__(self):
         self.rua = "",
         self.numero = 0,
         self.bairro = "",
-        self.ceep = 0,
+        self.cep = 0,
         self.cidade = "",
         self.estado ="",
         self.pais = ""
-class data:
+class Data: #data
     def __init__(self):
         self.dia = 0
         self.mes = 0 
         self.ano = 0
 
-class telefone:
+class Telefone: #Phone
     def __init__(self):
         self.ddd = 0
         self.numero = 0        
 
-class pessoa:
+class Pessoa: #Person
     def __init__(self):
         self.nome = "",
         self.sobrenome = "",
         self.cpf = 0,
-        self.endereco = endereco
-        self.nascimento = data
-        self.contato = telefone 
-        self.contato2 = telefone
+        self.endereco = Endereco()
+        self.nascimento = Data()
+        self.contato = Telefone() 
+        self.contato2 = Telefone()
 
 
-class funcionario:
+class Funcionario: #employee
     def __init__(self):
-        self.dados = pessoa
+        self.dados = Pessoa()
+        self.codigoFuncionario = 0
         self.cargo = ""
         self.setor = ""
-        self.data_efetivo = data
+        self.data_efetivo = Data()
 
 
-class cliente:
+class Cliente: #client
     def init__(self):
-        self.dados = pessoa
+        self.dados = Pessoa()
         self.ativo = ""
 
 
-class produto:
+class Produto: #Product
     def __init__(self):
-        self.descricao = ""
+        self.nome = ""
         self.marca = ""
         self.fornecedor = ""
-        self.valorcompra = 0 
-        self.valorVenda = 0
 
-class venda:
+class Venda: #sale
     def __init__(self):
-        self.cliente = cliente
-        self.produto = produto
-        self.vendedor = ""
+        self.vendedor = Funcionario()
+        self.cliente = Cliente()
+        self.produtoV = Produto()
+        self.quantidade = 0
+        self.totalProduto = (self.quantidade * self.produtoV)
+
+        
 
 
+p=Pessoa()
+f=Funcionario() 
+e=Endereco()
 
+print("Cadastro de funcionario:\n")
+f.dados.nome = str(input("Insira o primeiro nome:"))
+f.dados.sobrenome = str(input("Insira o Sobrenome:"))
+f.dados.cpf = int(input("Insira o CPF:"))
+f.dados.endereco.rua = str(input("Rua:"))
+f.dados.endereco.numero = int(input("Numero:"))
+f.dados.endereco.bairro = str(input("Bairro:"))
+f.dados.endereco.cep = int(input("CEP:"))
+f.dados.endereco.cidade = str(input("Cidade:"))
+f.dados.endereco.estado = str(input("Estado:"))
+f.dados.endereco.pais = str(input("País:"))
+print("Data de nascimento:\n")
+f.dados.nascimento.dia = int(input("Dia:"))
+f.dados.nascimento.mes = int(input("Mês:"))
+f.dados.nascimento.ano = int(input("Ano:"))
+print("Contato:\n")
+f.dados.contato.ddd = int(input("DDD:"))
+f.dados.contato.numero = int(input("Telefone:"))
+print("Contato2:")
+f.dados.contato2.ddd = int(input("DDD:"))
+f.dados.contato2.numero = int(input("Telefone:"))
+f.cargo = str(input("Insira a função:"))
+f.setor = str(input("Setor:"))
+print("Data da efetivação:")
+f.data_efetivo.dia = int(input("Dia:"))
+f.data_efetivo.mes = int(input("Mês:"))
+f.data_efetivo.ano = int(input("Ano:"))
+
+def exibirFuncionario(f):
+
+    print ("-------Cadastro de funcionarios------\n", "Nome:", f.dados.nome, "\nSobrenome:",
+     f.dados.sobrenome,"\nCPF:", f.dados.cpf,"\nendereço:\nRua:",f.dados.endereco.rua,
+     "\nNumero:",f.dados.endereco.numero, "\nBairro:",f.dados.endereco.bairro,"\nCEP:",f.dados.endereco.cep,"\nCidade:",f.dados.endereco.cidade,
+     "\nEstado:",f.dados.endereco.estado,"\nPaís:",f.dados.endereco.pais,"\nTelefone:(",f.dados.contato.ddd,")",f.dados.contato.numero,
+     "\nContato2(:",f.dados.contato2.ddd,")",f.dados.contato2.numero,"\nCargo:",f.cargo,"\nSetor",f.setor,"\nData da efetivação:",
+     f.data_efetivo.dia,"/",f.data_efetivo.mes,"/",f.data_efetivo.ano,"--------")
+
+
+exibirFuncionario(f)
